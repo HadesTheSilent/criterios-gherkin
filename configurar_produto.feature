@@ -5,22 +5,22 @@ Funcionalidade: Configurar produto
   E escolher a quantidade
   Para depois inserir no carrinho
 
-  Fundo:
+  Contexto:
     Dado que estou na página de configuração do produto
 
   Esquema do Cenário: Configuração de produto
     Quando eu configuro o produto com <cor>, <tamanho> e <quantidade>
-    Então <resultado>
+    Então o sistema deverá exibir <resultado>
 
     Exemplos:
-      | cor      | tamanho | quantidade | resultado                                                    |
-      | vazio    | M       | 1         | deve exibir mensagem de erro "Seleções obrigatórias não preenchidas" |
-      | Azul     | vazio   | 1         | deve exibir mensagem de erro "Seleções obrigatórias não preenchidas" |
-      | Azul     | M       | vazio     | deve exibir mensagem de erro "Seleções obrigatórias não preenchidas" |
-      | Azul     | M       | 11        | deve exibir mensagem "Máximo 10 produtos por venda"          |
-      | Azul     | M       | 10        | deve adicionar o produto ao carrinho                         |
+      | cor   | tamanho | quantidade | resultado                                                            |
+      | vazio | M       |          1 | deve exibir mensagem de erro "Seleções obrigatórias não preenchidas" |
+      | Azul  | vazio   |          1 | deve exibir mensagem de erro "Seleções obrigatórias não preenchidas" |
+      | Azul  | M       | vazio      | deve exibir mensagem de erro "Seleções obrigatórias não preenchidas" |
+      | Azul  | M       |         11 | deve exibir mensagem "Máximo 10 produtos por venda"                  |
+      | Azul  | M       |         10 | deve adicionar o produto ao carrinho                                 |
 
   Cenário: Limpar configurações
     Dado que eu selecionei cor, tamanho e quantidade
     Quando eu clico no botão "limpar"
-    Então deve voltar ao estado original
+    Então devo voltar ao estado original
